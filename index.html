@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rochester&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rochester&family=Smythe&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <title>Document</title>
+</head>
+<body>
+  <div class="parent-container">
+  
+  <div class="main-container">
+    <h2>Hello Arjun</h2>
+    <h3>Will you be my valentine?</h3>
+    <div class="buttons">
+      <button class="yes" id="yesbtn" onclick="openlove()">Yes</button>
+      <dialog id="yesdialog">
+        <button id="closebtn">Close</button>
+        <h2>Good Job Handsome!</h2>
+        <p>You are very smart!</p>
+        <a href="img.html"id="fullscreen">Click here</a>
+      </dialog>
+      <button id="nobtn">No</button>
+    </div>
+  </div>
+  </div>
+</body>
+<script>
+  const yesbutton = document.getElementById('yesbtn');
+  const yesbox = document.getElementById('yesdialog');
+  yesbutton.addEventListener('click',()=>yesdialog.showModal());
+
+  const closebutton = document.getElementById('closebtn')
+  closebutton.addEventListener('click',()=>{yesdialog.close()})
+
+  const nobutton = document.getElementById('nobtn');
+  nobutton.addEventListener("click",function(){
+    const x = Math.floor(Math.random()*300)+1;
+    const y = Math.floor(Math.random()*300)+1;
+    const z = Math.floor(Math.random()*300)+1;
+    const p = Math.floor(Math.random()*300)+1;
+    nobutton.style.position="absolute";
+    nobutton.style.top = x+"px";
+    nobutton.style.right = y+"px";
+  })
+  document.getElementById('fullscreen').addEventListener('click', (e) => {
+  e.preventDefault(); // ⛔ stop navigation
+
+  document.documentElement.requestFullscreen().then(() => {
+    // navigate AFTER fullscreen works
+    window.location.href = "img.html";
+  }).catch(err => {
+    console.error(err);
+  });
+});
+
+</script>
+</html>

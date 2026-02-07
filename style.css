@@ -1,0 +1,64 @@
+body{
+  margin: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background-image: url('roses.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+  font-family: "Rochester", cursive;
+}
+.parent-container{
+  background-image: url();
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+.main-container{
+  background: rgba(0, 0, 0, 0.441);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: .5px solid rgba(35, 35, 35, 0.3);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  color: white;
+  width: 15vw;
+  height: 40vh;
+  /* border: .5px solid rgb(225, 212, 136); */
+  border-radius: 3px;
+  text-align: center;
+  display: grid;  
+  place-items: center;
+  grid-auto-rows: 1fr 2fr;
+  padding: 2rem;
+}
+.main-container h2{
+  margin: 0;
+  font-weight: 300;
+  text-transform:capitalize;
+  /* font-family: "Smythe", system-ui; */
+  word-spacing: 5px;
+}
+.main-container h3{
+  margin: 0;
+  font-weight: 200;
+}
+.buttons{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+button{
+  font-family: 'Rochester',cursive;
+  background-color: rgb(255, 187, 191);
+  padding: .3rem .8rem;
+  border-radius: 5px;
+  border: none;
+}
+.noway{
+  position: absolute;
+  white-space: nowrap;
+}
