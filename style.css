@@ -1,64 +1,178 @@
-body{
-  margin: 0;
-  width: 100vw;
-  height: 100vh;
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+html,
+body {
+  width: 100%;
+  height: 100%;
   overflow: hidden;
-  background-image: url('roses.jpg');
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-attachment: fixed;
+}
+body {
+  margin: 0;
   font-family: "Rochester", cursive;
-}
-.parent-container{
-  background-image: url();
+  background: url("roses.jpg") center / cover no-repeat fixed;
+
   display: flex;
-  justify-content: center;
   align-items: center;
-  height: 100vh;
+  justify-content: center;
 }
-.main-container{
-  background: rgba(0, 0, 0, 0.441);
-  backdrop-filter: blur(5px);
-  -webkit-backdrop-filter: blur(5px);
-  border: .5px solid rgba(35, 35, 35, 0.3);
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-  color: white;
-  width: 15vw;
-  height: 40vh;
-  /* border: .5px solid rgb(225, 212, 136); */
-  border-radius: 3px;
+.parent-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+.main-container {
+  background: rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+
+  border-radius: 12px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+
+  color: #fff;
   text-align: center;
-  display: grid;  
-  place-items: center;
-  grid-auto-rows: 1fr 2fr;
+
+  width: 100%;
+  max-width: 360px;
   padding: 2rem;
+
+  display: flex;
+  flex-direction: column;
 }
-.main-container h2{
-  margin: 0;
+.main-container h2 {
+  margin: 0 0 0.8rem;
+  font-weight: 400;
+  font-size: 1.8rem;
+}
+
+.main-container h3 {
+  margin: 0 0 1.6rem;
   font-weight: 300;
-  text-transform:capitalize;
-  /* font-family: "Smythe", system-ui; */
-  word-spacing: 5px;
+  font-size: 1.2rem;
 }
-.main-container h3{
-  margin: 0;
-  font-weight: 200;
-}
-.buttons{
+.buttons {
   display: flex;
   justify-content: center;
-  align-items: center;
-  gap: 1rem;
+  gap: 1.2rem;
 }
-button{
-  font-family: 'Rochester',cursive;
-  background-color: rgb(255, 187, 191);
-  padding: .3rem .8rem;
-  border-radius: 5px;
+button {
+  font-family: "Rochester", cursive;
+  font-size: 1rem;
+  padding: 0.25rem 0.9rem;
+
+  border-radius: 7px;
   border: none;
+  background: rgb(255, 187, 191);
+  color: #000;
+
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
-.noway{
-  position: absolute;
+
+button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25);
+}
+
+button:active {
+  transform: scale(0.95);
+}
+#nobtn {
+  position: relative;
   white-space: nowrap;
+}
+dialog {
+  position: relative;
+  border: none;
+  border-radius: 12px;
+
+  background: rgba(0, 0, 0, 0.85);
+  color: #fff;
+
+  padding: 2rem 1.8rem;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.8rem;
+
+  text-align: center;
+}
+
+dialog::backdrop {
+  background: rgba(0, 0, 0, 0.6);
+}
+dialog h2,
+dialog p {
+  margin: 0;
+}
+
+dialog h2 {
+  font-size: 1.6rem;
+  font-weight: 400;
+}
+
+dialog p {
+  font-size: 1rem;
+  opacity: 0.9;
+}
+.dialog-close {
+  position: absolute;
+  top: 10px;
+  right: 12px;
+
+  background: transparent;
+  border: none;
+  padding: 0;
+
+  color: #fff;
+  font-size: 1.4rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.dialog-close:hover {
+  opacity: 0.6;
+}
+dialog:not([open]) {
+  display: none;
+}
+#fullscreen {
+  display: inline-block;
+  margin-top: 0.6rem;
+
+  color: #ffb6c1;
+  font-size: 1.1rem;
+  text-decoration: none;
+
+  transition: transform 0.15s ease, opacity 0.15s ease;
+}
+
+#fullscreen:hover {
+  transform: translateY(-1px);
+  opacity: 0.85;
+}
+
+@media (max-width: 480px) {
+  .main-container {
+    padding: 1.6rem 1.4rem;
+  }
+
+  .main-container h2 {
+    font-size: 1.6rem;
+  }
+
+  .main-container h3 {
+    font-size: 1.1rem;
+  }
+
+  button {
+    font-size: 0.95rem;
+  }
 }

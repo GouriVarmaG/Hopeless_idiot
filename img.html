@@ -1,12 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="style2.css">
-  <title>Document</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://fonts.googleapis.com/css2?family=Rochester&family=Smythe&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style2.css" />
+  <title>A year</title>
 </head>
+
 <body>
-  <div class="bg"></div>
+
+  <div class="image-wrapper">
+    <img src="bg.png" alt="memory" id="bgImage" />
+
+    <div class="overlay-text">
+      A year with this idiot.
+    </div>
+  </div>
+
+  <script>
+    window.addEventListener("load", () => {
+      const link = document.createElement("a");
+      link.href = "bg.png";
+      link.download = "a_year_with_this_idiot.png";
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    });
+  </script>
+
 </body>
 </html>

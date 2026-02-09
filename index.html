@@ -1,64 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Rochester&display=swap" rel="stylesheet">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Rochester&family=Smythe&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://fonts.googleapis.com/css2?family=Rochester&family=Smythe&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
-  <title>Document</title>
+  <title>Valentine</title>
+
+  <style>
+    .question-box { display: none; }
+    .question-box.active { display: block; }
+  </style>
 </head>
+
 <body>
   <div class="parent-container">
-  
-  <div class="main-container">
-    <h2>Hello Arjun</h2>
-    <h3>Will you be my valentine?</h3>
-    <div class="buttons">
-      <button class="yes" id="yesbtn" onclick="openlove()">Yes</button>
+    <div class="main-container">
+      
+      <div class="question-box active" id="q1">
+        <h2>Hey you..</h2>
+        <h3>I had a question.<br>I also had some fun time.<br>This seemed like a reasonable use of it.</h3>
+        <button onclick="nextQuestion(2)">Next</button>
+      </div>
+
+      <div class="question-box" id="q2">
+        <h3>Hope you'll enjoy answering questions when the alternative refuses to cooperate</h3>
+        <button onclick="nextQuestion(3)">Next</button>
+      </div>
+      <div class="question-box" id="q3">
+        <h2 style="color: rgb(255, 128, 128);">Will you be my valentine?</h2>
+
+        <div class="buttons">
+          <button class="yes" id="yesbtn">Yes</button>
+          <button id="nobtn">No</button>
+        </div>
+      </div>
       <dialog id="yesdialog">
-        <button id="closebtn">Close</button>
-        <h2>Good Job Handsome!</h2>
-        <p>You are very smart!</p>
-        <a href="img.html"id="fullscreen">Click here</a>
+        <button id="closebtn" class="dialog-close">✕</button>
+        <h2>Great choice!</h2>
+        <p>Thankyou for being here...</p>
+        <a href="img.html" id="fullscreen">Click here</a>
       </dialog>
-      <button id="nobtn">No</button>
+
     </div>
   </div>
-  </div>
 </body>
-<script>
-  const yesbutton = document.getElementById('yesbtn');
-  const yesbox = document.getElementById('yesdialog');
-  yesbutton.addEventListener('click',()=>yesdialog.showModal());
-
-  const closebutton = document.getElementById('closebtn')
-  closebutton.addEventListener('click',()=>{yesdialog.close()})
-
-  const nobutton = document.getElementById('nobtn');
-  nobutton.addEventListener("click",function(){
-    const x = Math.floor(Math.random()*300)+1;
-    const y = Math.floor(Math.random()*300)+1;
-    const z = Math.floor(Math.random()*300)+1;
-    const p = Math.floor(Math.random()*300)+1;
-    nobutton.style.position="absolute";
-    nobutton.style.top = x+"px";
-    nobutton.style.right = y+"px";
-  })
-  document.getElementById('fullscreen').addEventListener('click', (e) => {
-  e.preventDefault(); // ⛔ stop navigation
-
-  document.documentElement.requestFullscreen().then(() => {
-    // navigate AFTER fullscreen works
-    window.location.href = "img.html";
-  }).catch(err => {
-    console.error(err);
-  });
-});
-
-</script>
+  <script src="app.js" defer></script>
 </html>
